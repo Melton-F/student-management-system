@@ -10,7 +10,7 @@ const StudSchema = new mongoose.Schema({
   schoolID: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "School",
-    required: true,
+    required: true
   },
 });
 

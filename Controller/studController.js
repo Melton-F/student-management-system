@@ -14,6 +14,7 @@ const getStudent = async (req, res)=>{
 }
 
 const getStudbySclID = async (req, res)=>{
+    console.log("getStudbySclID");
     const stud = await Student.find({schoolID:req.params.id}).populate('schoolID').populate('departmentID').exec()
     res.status(200).json({
         status:'number of student showed',

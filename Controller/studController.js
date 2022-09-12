@@ -1,6 +1,18 @@
 const Student = require('../Models/studMdl')
 const mongoose = require('mongoose')
 
+
+const getStudent = async (req, res)=>{
+    const stud = await Student.find().populate('schoolID').populate('departmentID').exec()
+    res.status(200).json({
+        status:'number of student showed',
+        results: stud.length,
+        data:{
+            students:stud
+        }
+    })
+}
+
 const getStudbySclID = async (req, res)=>{
     const stud = await Student.find({schoolID:req.params.id}).populate('schoolID').populate('departmentID').exec()
     res.status(200).json({
@@ -36,5 +48,5 @@ const createStud =  (req, res, next)=>{
     }
 
 module.exports = {
-    createStud, getStudbySclID
+    getStudent, createStud, getStudbySclID
 } 

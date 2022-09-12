@@ -3,11 +3,11 @@ const studController = require('../Controller/studController')
 
 const router = express.Router()
 
-router.route('/get/:id')
+router.route('/:id')
     .get(studController.getStudbySclID)
 
 router.route('/')
-    // .get(studController.getStud)
+    .get(studController.getStudent)
     .post(studController.createStud)
 
 module.exports = router
